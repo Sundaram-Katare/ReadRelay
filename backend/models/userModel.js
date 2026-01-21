@@ -8,6 +8,6 @@ const userSchema = new mongoose.Schema({
     bio: { type: String, default: 'Reader at ReadRelay' },
     role: { type: String, enum: ['user', 'admin'], default: 'user' },
     wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }],
-}, { timestamps: true }, { collection: 'user'});
+}, { collection: 'user' }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
