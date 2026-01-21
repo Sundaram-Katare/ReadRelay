@@ -67,4 +67,16 @@ const login = async (req, res) => {
     }
 }
 
-module.exports = { register, upload, login };
+const profile = async (req, res) => {
+    try {
+      const userId = req.userId;
+
+      const user = await User.find({ userId });
+
+      return res.status(200).json({ message: "User Profile Fetched Successfully", user });
+    } catch (err) {
+        return res.status(500).json({ message: "Internal Server Error", error: err.message });
+    }
+}
+
+module.exports = { register, upload, login, profile };
