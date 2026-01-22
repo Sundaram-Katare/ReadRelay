@@ -77,6 +77,24 @@ const profile = async (req, res) => {
     } catch (err) {
         return res.status(500).json({ message: "Internal Server Error", error: err.message });
     }
-}
+};
 
-module.exports = { register, upload, login, profile };
+const updateProfile = async (req, res) => {
+    try {
+    const userId = req.userId;
+    const { name, bio } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(userId, { name, bio }, { new: true });
+    // updatedUser.save();
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    return res.status(200).json({ message: "Profile updated successfully", user: updatedUser });    
+    } catch (err) {
+        return res.status(500).json({ message: "Internal Server Error", error: err.message });
+    }
+};
+
+module.exports = { register, upload, login, profile, updateProfile };
