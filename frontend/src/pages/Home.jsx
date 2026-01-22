@@ -1,3 +1,4 @@
+import Exchange from "../components/Exchange";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Recommend from "../components/Recommend";
@@ -9,6 +10,7 @@ export default function Home() {
                 <Navbar />
                 <Hero />
                 <Recommend />
+                <Exchange />
             </div>
         </>
     )

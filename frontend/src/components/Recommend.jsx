@@ -27,9 +27,12 @@ export default function Recommend() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="bg-pink-300 rounded-full">
                       {/* <div className="bg-yellow-500 h-40 w-40 rounded-full z-0" />   */}
-                      <img src="https://png.pngtree.com/png-clipart/20241007/original/pngtree-3d-cartoon-character-of-a-smart-librarian-with-stack-books-png-image_16233131.png" 
+                      <motion.img src="https://png.pngtree.com/png-clipart/20241007/original/pngtree-3d-cartoon-character-of-a-smart-librarian-with-stack-books-png-image_16233131.png" 
+                           initial={{ opacity: 0, z: -120 }}
+                           animate={{ opacity: 1, z: 0 }}
+                           transition={{ duration: 4, animation: "easeIn"}}
                            className="bg-pink-300 rounded-full"
                       alt="" />
                     </div>
